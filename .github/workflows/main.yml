@@ -11,7 +11,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
-        server: ftp.admin.deepcodegroup.com
+        server: admin.deepcodegroup.com
         username: 'deepcode'
         password: '@Deepcodein_2024'                                    
         server-dir: /domains/capitalradio.deepcodegroup.com/public_html/
