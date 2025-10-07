@@ -21,8 +21,8 @@ jobs:
           server: 'admin.deepcodegroup.com'               
           username: 'deepcode'          
           password: '@Deepcodein_2024'          
-          protocol: sftp                                      
-          port: 22                                           
+          protocol: ftps                                      
+          port: 21                                           
           server-dir: /domains/capitalradio.deepcodegroup.com/public_html/
           exclude: |
             **/.git*
