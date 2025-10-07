@@ -1,0 +1,32 @@
+name: Deploy capitalradio on push
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    concurrency:
+      group: deploy-capitalradio
+      cancel-in-progress: true
+
+    steps:
+      - name: Get latest code
+        uses: actions/checkout@v4
+
+      - name: Sync files (SFTP recommended)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: 'admin.deepcodegroup.com'               
+          username: 'deepcode'          
+          password: '@Deepcodein_2024'          
+          protocol: sftp                                      
+          port: 22                                           
+          server-dir: /domains/capitalradio.deepcodegroup.com/public_html/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            node_modules/**
+            **/.DS_Store
+          log-level: verbose
