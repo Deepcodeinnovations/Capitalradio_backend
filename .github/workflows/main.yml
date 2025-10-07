@@ -1,33 +1,24 @@
-name: Deploy capitalradio on push
-on:
-  push:
-    branches: [ main ]
-
+on: push
+name: 🚀 Deploy website on push
 jobs:
   web-deploy:
-    name: Deploy
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
-    concurrency:
-      group: deploy-capitalradio
-      cancel-in-progress: true
-
     steps:
-      - name: Get latest code
-        uses: actions/checkout@v4
-
-      - name: Sync files (SFTP recommended)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: 'admin.deepcodegroup.com'               
-          username: 'deepcode'          
-          password: '@Deepcodein_2024'          
-          protocol: ftps                                      
-          port: 21                                        
-          server-dir: /domains/capitalradio.deepcodegroup.com/public_html/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            node_modules/**
-            **/.DS_Store
-            alembic/**
-          log-level: verbose
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      with:
+        server: ftp.admin.deepcodegroup.com
+        username: 'deepcode'
+        password: '@Deepcodein_2024'                                    
+        server-dir: /domains/capitalradio.deepcodegroup.com/public_html/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          node_modules/**
+          **/.DS_Store
+          alembic/**
+        log-level: verbose
