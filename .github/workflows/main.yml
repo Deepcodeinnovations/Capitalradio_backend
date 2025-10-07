@@ -14,7 +14,7 @@ jobs:
         server: admin.deepcodegroup.com
         username: 'deepcode'
         password: '@Deepcodein_2024'                                    
-        server-dir: /domains/capitalradio.deepcodegroup.com/public_html/
+        server-dir: /home/deepcode/web/capitalradio.deepcodegroup.com/public_html/
         exclude: |
           **/.git*
           **/.git*/**
