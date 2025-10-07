@@ -116,8 +116,7 @@ class User(Base):
             await db.execute(delete(Host).where(Host.created_by == self.id))
             await db.execute(delete(Advert).where(Advert.created_by == self.id))
             await db.execute(delete(Station).where(Station.created_by == self.id))
-            await db.execute(delete(RadioSessionRecording).where(RadioSessionRecording.created_by == self.id))
-            
+
             # Finally delete the user
             await db.execute(delete(User).where(User.id == self.id))
             
