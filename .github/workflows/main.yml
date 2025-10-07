@@ -22,11 +22,12 @@ jobs:
           username: 'deepcode'          
           password: '@Deepcodein_2024'          
           protocol: ftps                                      
-          port: 21                                           
+          port: 22                                           
           server-dir: /domains/capitalradio.deepcodegroup.com/public_html/
           exclude: |
             **/.git*
             **/.git*/**
             node_modules/**
             **/.DS_Store
+            alembic/**
           log-level: verbose
